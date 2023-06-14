@@ -15,7 +15,9 @@ export default {
   methods: {
     getProjects() {
       axios.get(`${this.baseUrl}/api/projects`).then(resp => {
-        this.projects = resp.data.results;
+        this.projects = resp.data.result;
+        console.log(resp);
+        
       });
     }
   },
@@ -24,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container pt-3">
     <h2>Lista dei progetti</h2>
     <div class="row row-cols-3 g-3">
       <div class="col" v-for="project in projects" :key="project.id">
